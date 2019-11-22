@@ -1,0 +1,4 @@
+﻿  cl: 命令行 warning D9035 :“Gm”选项已否决，并将在将来的版本中移除
+  AltWind.c
+AltWind.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  AltWind.vcxproj -> E:\sourcecode\code\win\Windows程序设计\Chap05\AltWind\.\Debug\AltWind.exe

@@ -1,0 +1,6 @@
+﻿  cl: 命令行 warning D9035 :“Gm”选项已否决，并将在将来的版本中移除
+  AllColor.c
+  PalAnim.c
+  正在生成代码...
+PalAnim.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+  AllColor.vcxproj -> E:\sourcecode\code\win\Windows程序设计\Chap16\AllColor\.\Debug\AllColor.exe
