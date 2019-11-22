@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/start.gif</file>
+        <file>resource/title_icon.jpg</file>
+        <file>resource/apple_logo.bmp</file>
+    </qresource>
+</RCC>

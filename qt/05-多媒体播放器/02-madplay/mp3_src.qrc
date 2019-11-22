@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>mp3_src/voice.PNG</file>
+        <file>mp3_src/apple_logo.bmp</file>
+        <file>mp3_src/next.png</file>
+        <file>mp3_src/open.png</file>
+        <file>mp3_src/pause.png</file>
+        <file>mp3_src/play.png</file>
+        <file>mp3_src/prev.png</file>
+        <file>mp3_src/slow.png</file>
+        <file>mp3_src/speed.png</file>
+        <file>mp3_src/stop.png</file>
+    </qresource>
+</RCC>

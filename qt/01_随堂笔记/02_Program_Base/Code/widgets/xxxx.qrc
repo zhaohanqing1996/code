@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>iamge/1.jpg</file>
+        <file>iamge/2.jpg</file>
+        <file>iamge/3.jpg</file>
+        <file>iamge/3ecb28e761ba6889247b631a83da298e_b.jpg</file>
+    </qresource>
+</RCC>

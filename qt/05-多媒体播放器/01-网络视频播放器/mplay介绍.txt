@@ -1,0 +1,29 @@
+注意，因为Mplayer是通过换行符("/n")来分隔不同的命令，所以我们在编程中不管是写入到管道文件还是写入到QT的进程中在命令后面一定要加入换行符("/n"),这样Mplayer才能辨别。
+
+
+mplayer源码中有一个关于mplay slave 模式的说明文档：/DOCS/tech/slave.txt，下面是中文翻译
+
+可用的命令（'mplayer -input cmdlist的'会打印出一份清单）：
+#mplayer -input cmdlist
+// 会打印出一份当前mplayer所支持的所有slave模式的命令
+方法一：从控制台输入控制命令(测试使用)
+运行mplayer -slave -quiet <movie>，并在控制台窗口输入slave命令。
+//-slave 启动从模式
+//-quiet 不输出冗余的信息
+常用到的 Mplayer指令：
+loadfile   string   //参数string 为 歌曲名字。
+volume 100 1  //设置音量 中间的为音量的大小。
+mute  1/0 //静音开关
+pause  //暂停/取消暂停
+get_time_length  //返回值是播放文件的长度，以秒为单位。
+seek value   //向前查找到文件的位置播放 参数value为秒数。
+get_percent_pos //返回文件的百分比（0--100）
+get_time_pos //打印出在文件的当前位置用秒表示，采用浮点数
+volume <value> [abs] //增大/减小音量，或将其设置为<value>，如果[abs]不为零
+get_file_name //打印出当前文件名
+get_meta_album //打印出当前文件的'专辑'的元数据
+get_meta_artist //打印出当前文件的'艺术家'的元数据
+get_meta_comment //打印出当前文件的'评论'的元数据
+get_meta_genre //打印出当前文件的'流派'的元数据
+get_meta_title //打印出当前文件的'标题'的元数据
+get_meta_year //打印出当前文件的'年份'的元数据
