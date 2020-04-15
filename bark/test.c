@@ -6,20 +6,24 @@
 #include<netdb.h>
 
 char *str;
-char *obtainPushMessage(void);
-void connectPushServer(void);
+char buf[4096];
+
+int obtainMessage(void);
+void postHttpMessage(void);
+int connectPushServer(void);
+int sendMessageToServer(void);
 
 int main(int argc,char* argv[])
 {
-    pushMeobtainPushMessagessage();
-    connectPushServer();
-    free(str);
+    obtainMessage();
+    postHttpMessage();
+    sendMessageToServer();
     return 0;
 }
 
-char *obtainPushMessage(void)
+int obtainMessage(void)
 {
-    str = malloc(512);
+    str = malloc(256);
     if(str == NULL)
     {
         perror("malloc");
@@ -30,7 +34,19 @@ char *obtainPushMessage(void)
     return 0;
 }
 
-void connectPushServer(void)
+void postHttpMessage(void)
+{
+    memset(buf,0,4096);
+
+    sprintf(buf,"POST http://api.day.app/seFqfLJGHTWDvXnGZPYeRP/%s HTTP/1.1\r\n",str);
+    strcat(buf,"Host: api.day.app\r\n");
+    strcat(buf,"Content-Length: 0\r\n");
+    strcat(buf,"\r\n\r\n");
+
+    printf("%s\n",buf);
+}
+
+int connectPushServer(void)
 {
     int sock_fd;
     struct sockaddr_in sockaddr_server;
@@ -67,9 +83,28 @@ void connectPushServer(void)
         return -1;
     }
     printf("连接服务器成功！\n");
+    return sock_fd;
 }
 
-void pushMessageToBark(void)
+int sendMessageToServer(void)
 {
-    
+    char recv_buf[4096];
+    ssize_t send_num,recv_num;
+    int fd = connectPushServer();
+    send_num = send(fd,buf,strlen(buf),0);
+    if(send_num < 0)
+    {
+        perror("send");
+        return -1;
+    }
+    printf("成功发送信息到推送服务器！\n");
+
+    recv_num = recv(fd,recv_buf,sizeof(recv_buf),0);
+    if(recv_num < 0)
+    {
+        perror("recv");
+        return -1;
+    }
+    printf("收到推送服务器信息: \n%s\n",recv_buf);
+    return 0;
 }
